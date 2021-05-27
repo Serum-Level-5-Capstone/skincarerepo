@@ -11,6 +11,10 @@ const serumSchema = new Schema({
     tag: {
         type: Array,
         required: true
+    },
+    description: {
+        type: String,
+        required: true
     }
     
 })
