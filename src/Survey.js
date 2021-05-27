@@ -1,6 +1,7 @@
 import React,  {useState} from "react";
 import axios from "axios";
 
+// Maya will work on this component 
 export default function Survey(){
  const questions = {
     questions: [
