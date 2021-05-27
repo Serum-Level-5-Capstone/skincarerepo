@@ -1,9 +1,9 @@
 import React,  {useState} from "react";
 import axios from "axios";
 
-// Maya will work on this component 
+// Maya The Bee will work on this survey component 
 export default function Survey(){
- const questions = {
+ const questions = { 
     questions: [
         {
           name: "question 1",
