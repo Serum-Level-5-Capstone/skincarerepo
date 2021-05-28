@@ -1,10 +1,11 @@
 import React,  {useState} from "react";
 import axios from "axios";
 
-// Maya The Bee will work on this survey component 
+//Onsubmit for survey and routed to Results component with the results. 
 export default function Survey(){
- const questions = { 
+  //Should I make a form here instead, to be simplest DRY code?
     questions: [
+
         
         {
             name: "question 1",
@@ -13,7 +14,7 @@ export default function Survey(){
               { type: "text", name: "What is your skin type? (Dry, combination,normal, sensitive, or oily) ",  placeHolder:"Provide your answer", isRequired: true}
             ]
         },
-        ,
+        
         {
             name: "question 2",
             title: "This is the page {pageno} of {pagecount}.",
@@ -27,10 +28,10 @@ export default function Survey(){
             elements: [
               { type: "text", name: "What is your Full name? ",  placeHolder:"Provide your answer", isRequired: true},
             ]
-        },
+        }
       ]
-      // ,completedHtml: `<p><h4>Thank you for sharing this information with us.</h4></p>`
-}
+     
+
   return(
     <p>hiya</p>
   )

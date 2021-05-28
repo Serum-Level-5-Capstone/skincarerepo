@@ -6,7 +6,7 @@ const mongoose = require("mongoose")
 app.use(express.json())
 app.use(morgan('dev'))
 
-mongoose.connect('mongodb://localhost:27017/serumsdb',
+mongoose.connect('mongodb://localhost:27017/serumsitedb',
 {
     useNewUrlParser: true,
     useUnifiedTopology: true,
