@@ -1,6 +1,6 @@
 const express = require('express')
 const serumRouter = express.Router()
-const serum = require('./models/serum.js')
+const serum = require('../models/serum.js')
 
 
 serumRouter.get("/", (req, res, next) => {
@@ -12,7 +12,24 @@ serumRouter.get("/", (req, res, next) => {
         return res.status(200).send(serum)
     })
 })
-
+serumRouter.get("/seasons", (req, res, next) => {
+    serum.find((err, serums) =>{
+        if(err){
+            res.status(500)
+            return next(err)
+        }
+        return res.status(200).send(serum)
+    })
+})
+serumRouter.get("/mycart", (req, res, next) => {
+    serum.find((err, serums) =>{
+        if(err){
+            res.status(500)
+            return next(err)
+        }
+        return res.status(200).send(serum)
+    })
+})
 serumRouter.post("/", (req, res, next) =>
 {
     const newSerum = new serum(req.body)
@@ -35,12 +52,12 @@ serumRouter.delete("/:serumId", (req, res, next) =>
             res.status(500)
             return next(err)
         }
-        return res.status(200).send(`Successfully deleted ${deletedItem.firstName} from the database`)
+        return res.status(200).send(`Successfully deleted ${deletedItem._id} from the database`)
 })
 })
 
 
-serumRouter.put("/:bountyId", (req, res, next) => {
+serumRouter.put("/:serumId", (req, res, next) => {
     serum.findOneAndUpdate({_id: req.params.serumId},
         req.body, //update this obj with this data
          {new: true}, //sends back updated version 
@@ -50,7 +67,7 @@ serumRouter.put("/:bountyId", (req, res, next) => {
             res.status(500)
             return next(err)
         }
-        return res.status(201).send(`Successfully updated ${updatedItem.firstName} in the database`)
+        return res.status(201).send(`Successfully updated ${updatedItem._id} in the database`)
 })
 
 })

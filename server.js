@@ -18,8 +18,9 @@ mongoose.connect('mongodb://localhost:27017/serumsitedb',
 )
 
 
-app.use("/serums", require("./serumRouter")) 
-
+app.use("/serums", require("./routes/serumRouter")) 
+app.use("/seasons", require("./routes/serumRouter")) 
+app.use("/mycart", require("./routes/serumRouter")) 
 
 app.use((err, req, res, next) =>{
     console.log(err)
@@ -28,4 +29,4 @@ app.use((err, req, res, next) =>{
 
 
 
-app.listen(9000, () => {console.log("Server is working!" )})
+app.listen(9000, () => {console.log("Server is running on port 9000!" )})
