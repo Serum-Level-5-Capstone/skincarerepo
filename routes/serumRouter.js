@@ -1,6 +1,6 @@
 const express = require('express')
 const serumRouter = express.Router()
-const serum = require('../models/serum.js')
+const Serum = require('../models/Serum.js')
 
 
 serumRouter.get("/", (req, res, next) => {
