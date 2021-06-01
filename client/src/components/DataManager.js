@@ -5,6 +5,7 @@ export const Context = React.createContext()
 
 export default function DataManager(props) {
     const [serums, setSerum] = useState([])
+    console.log(serums)
 
     const getSerum = () => {
         axios.get("/serums")
