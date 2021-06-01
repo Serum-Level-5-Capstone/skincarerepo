@@ -2,13 +2,13 @@ import React from 'react'
 import ReactDOM from 'react-dom'
 import App from './App'
 import { BrowserRouter as Router } from 'react-router-dom'
-import { Context } from "./components/DataManager"
+import Provider from "./components/DataManager"
 
 
 ReactDOM.render(
     <Router>
-        <Context.Consumer>
+        <Provider>
             <App />
-        </Context.Consumer>
+        </Provider>
     </Router>,
     document.getElementById('root'));

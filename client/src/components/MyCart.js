@@ -1,9 +1,11 @@
-import React, {useState} from "react"
+import React, {useContext, useState} from "react"
 import Results from "./Results"
-
+import {Context} from "./DataManager"
 export default function MyCart(props) {
 
     const [serumsArray, setSerumsArray] = useState([])
+    const {serums} = useContext(Context)
+    console.log(serums)
 
     const mappedSerums = serums.map(serum => (<Results {...serum} key={serum.serumId} />))
     return (

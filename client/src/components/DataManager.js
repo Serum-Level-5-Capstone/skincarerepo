@@ -29,7 +29,7 @@ export default function DataManager(props) {
     return (
         <Context.Provider value={{
             serums,
-            setSerums,
+            setSerum,
             getSerum,
             saveSerum
         }}>

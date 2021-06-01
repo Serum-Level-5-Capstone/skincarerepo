@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 import { Switch, Route, Link } from "react-router-dom";
 import axios from "axios";
 import { Context } from "./DataManager"

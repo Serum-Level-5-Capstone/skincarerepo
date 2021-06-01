@@ -23,7 +23,7 @@ const serumSchema = new Schema({
     }, 
     image: {
         type: String,
-        required
+        required: true
     }
 
 })
