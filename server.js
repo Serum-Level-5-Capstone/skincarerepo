@@ -19,7 +19,7 @@ mongoose.connect('mongodb://localhost:27017/serumsitedb',
 
 
 app.use("/serums", require("./routes/serumRouter")) 
-app.use("/seasons", require("./routes/serumRouter")) 
+app.use("/results", require("./routes/serumRouter")) 
 app.use("/mycart", require("./routes/serumRouter")) 
 
 app.use((err, req, res, next) =>{

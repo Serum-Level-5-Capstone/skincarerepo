@@ -1,10 +1,11 @@
-import React from "react"
+import React, {useState} from "react"
+import Results from "./Results"
 
 export default function MyCart(props) {
 
-    const {serums, serumId } = props
+    const [serumsArray, setSerumsArray] = useState([])
 
-    const mappedSerums = serums.map(serum => (<Serum {...serum} key={serum.serumId} />))
+    const mappedSerums = serums.map(serum => (<Results {...serum} key={serum.serumId} />))
     return (
         <div>
             <h1>Checkout</h1>

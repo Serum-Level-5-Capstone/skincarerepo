@@ -12,15 +12,18 @@ serumRouter.get("/", (req, res, next) => {
         return res.status(200).send(serum)
     })
 })
-serumRouter.get("/seasons", (req, res, next) => {
-    serum.find((err, serums) =>{
-        if(err){
-            res.status(500)
-            return next(err)
-        }
-        return res.status(200).send(serum)
-    })
-})
+
+//Get single serum by season
+
+// serumRouter.get("/results", (req, res, next) => {
+//     serum.find((err, serums) =>{
+//         if(err){
+//             res.status(500)
+//             return next(err)
+//         }
+//         return res.status(200).send(serum)
+//     })
+// })
 serumRouter.get("/mycart", (req, res, next) => {
     serum.find((err, serums) =>{
         if(err){

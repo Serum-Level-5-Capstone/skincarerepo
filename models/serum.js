@@ -16,9 +16,14 @@ const serumSchema = new Schema({
         type: String,
         required: true
     },
-    seasonId: {
+    season: {
         type: String,
+        enum: ["Spring", "Summer", "Fall", "Winter"],
         required: true
+    }, 
+    image: {
+        type: String,
+        required
     }
 
 })

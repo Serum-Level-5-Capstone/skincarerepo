@@ -6,21 +6,24 @@ import { Context } from "./DataManager"
 //Onsubmit for survey and routed to Results component with the results. 
 export default function Survey() {
 
-  const [selectedSerum, setSelectedSerum] = useState([])
+  // const [selectedSerum, setSelectedSerum] = useState([])
 
   const { serums, setSerums } = useContext(Context)
 
-  const handleSubmit = e => {
-    setSerums(selectedSerum)
+  const handleFilter = e => {
+    axios.get(`/serums/search/season?season=${e.target.value}`)
+    .then(res => setSerums(res.data))
+    .catch(err => console.log(err.response.data.errMsg))
+
   };
 
   return (
     <>
       <form>
-        <Link to="/Results"><div onClick={handleSubmit}>Spring</div></Link>
-        <Link to="/Results"><div onClick={handleSubmit}>Summer</div></Link>
-        <Link to="/Results"><div onClick={handleSubmit}>Fall</div></Link>
-        <Link to="/Results"><div onClick={handleSubmit}>Winter</div></Link>
+        <Link to="/Results"><div value="Spring" onClick={handleFilter}>Spring</div></Link>
+        <Link to="/Results"><div value="Summer" onClick={handleFilter}>Summer</div></Link>
+        <Link to="/Results"><div value="Fall" onClick={handleFilter}>Fall</div></Link>
+        <Link to="/Results"><div value="Winter" onClick={handleFilter}>Winter</div></Link>
       </form>
     </>
   )
