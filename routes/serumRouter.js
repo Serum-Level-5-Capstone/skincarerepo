@@ -4,12 +4,12 @@ const Serum = require('../models/Serum.js')
 
 
 serumRouter.get("/", (req, res, next) => {
-    serum.find((err, serums) =>{
+    Serum.find((err, serums) =>{
         if(err){
             res.status(500)
             return next(err)
         }
-        return res.status(200).send(serum)
+        return res.status(200).send(serums)
     })
 })
 
@@ -35,7 +35,7 @@ serumRouter.get("/mycart", (req, res, next) => {
 })
 serumRouter.post("/", (req, res, next) =>
 {
-    const newSerum = new serum(req.body)
+    const newSerum = new Serum(req.body)
     newSerum.save((err, savedSerum) =>
     {
         if(err){

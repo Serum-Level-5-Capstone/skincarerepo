@@ -1,5 +1,5 @@
-import React, { useContext, useState } from "react";
-import { Switch, Route, Link } from "react-router-dom";
+import React, { useContext } from "react";
+import { Link } from "react-router-dom";
 import axios from "axios";
 import { Context } from "./DataManager"
 
@@ -10,20 +10,20 @@ export default function Survey() {
 
   const { serums, setSerums } = useContext(Context)
 
-  const handleFilter = e => {
-    axios.get(`/serums/search/season?season=${e.target.value}`)
-    .then(res => setSerums(res.data))
-    .catch(err => console.log(err.response.data.errMsg))
+  // const handleFilter = e => {
+  //   axios.get(`/serums/search/season?season=${e.target.value}`)
+  //   .then(res => setSerums(res.data))
+  //   .catch(err => console.log(err.response.data.errMsg))
 
-  };
+  // };
 
   return (
     <>
       <form>
-        <Link to="/Results"><div value="Spring" onClick={handleFilter}>Spring</div></Link>
-        <Link to="/Results"><div value="Summer" onClick={handleFilter}>Summer</div></Link>
-        <Link to="/Results"><div value="Fall" onClick={handleFilter}>Fall</div></Link>
-        <Link to="/Results"><div value="Winter" onClick={handleFilter}>Winter</div></Link>
+        <Link to="/results/spring"><div value="Spring">Spring</div></Link>
+        <Link to="/results/summer"><div value="Summer">Summer</div></Link>
+        <Link to="/results/fall"><div value="Fall">Fall</div></Link>
+        <Link to="/results/winter"><div value="Winter">Winter</div></Link>
       </form>
     </>
   )
