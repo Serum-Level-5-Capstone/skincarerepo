@@ -15,16 +15,25 @@ serumRouter.get("/", (req, res, next) => {
 
 //Get single serum by season
 //Needed get request for specific serum, to display and for the proper cart to render which were selected. use a parameter either id or season to do the get request then use that in the route to display the json information from the database. use that to then send it as a parameter to the result page so the individual can check out with their desired product either by id or by season.
-serumRouter.get("/results/season", (req, res, next) => {
-    const season = req.params.season
-    const foundSerum = serums.find(serum => serum.season === season)
-    if (!foundSerum) {
-        const err = new Error("Item was not found")
-        res.status(500)
-        return next(err)
-    }
-    return res.status(200).send(foundSerum)
+serumRouter.get("/results/:season", (req, res, next) => {
+    const userSeason = req.params.season
+    Serum.find({season: userSeason}, (err, result) => {
+        if(err) {
+            return res.status(500)
+            next(err)
+        }
+        return res.status(200).send(result)
+    })
 })
+    
+    // const foundSerum = Serum.find(serum => serum.season.toLowerCase() === season)
+    // if (!foundSerum) {
+    //     const err = new Error("Item was not found")
+    //     res.status(500)
+    //     return next(err)
+    // }
+    // return res.status(200).send(foundSerum)
+// })
 
 serumRouter.post("/", (req, res, next) => {
     const newSerum = new Serum(req.body)

@@ -2,16 +2,16 @@ import React, { useState, useEffect, useContext } from "react"
 import axios from "axios"
 // import { Context } from "./DataManager"
 
-export default function Results(props, season) {
-
+export default function Results(props) {
+    
+    console.log(props.season)
+    
     const [serum, setSerum] = useState([])
 
     const getSerum = () => {
-        axios.get("/results/season")
+        axios.get(`/serums/results/${props.season}`)
             .then(res => {
-                res.data.find(serum => {
-                    setSerum(serum)
-                })
+                setSerum(res.data)
             })
     }
     useEffect(() => {
@@ -31,15 +31,16 @@ export default function Results(props, season) {
         }
         serumsArray.push(serumObj)
     }
-
+    console.log(serum)
+    // map through results outside of return 
     return (
         <div>
-            <h2>{serum.name}</h2>
+            {/* <h2>{serum.name}</h2>
             <p>{serum.tag}</p>
             <p>{serum.description}</p>
             <p>{serum.season}</p>
-            <img url={serum.image} alt="Serum Image"></img>
-            <button onClick={handleSave}>Save Serum</button>
+            <img url={serum.image} alt="Serum Image"></img>*/}
+            <button onClick={handleSave}>Save Serum</button> 
         </div>
     )
 
