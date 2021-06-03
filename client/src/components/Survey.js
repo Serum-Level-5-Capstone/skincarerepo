@@ -1,6 +1,5 @@
 import React, { useContext } from "react";
 import { Link } from "react-router-dom";
-import axios from "axios";
 import { Context } from "./DataManager"
 
 //Onsubmit for survey and routed to Results component with the results. 
@@ -10,20 +9,13 @@ export default function Survey() {
 
   const { serums, setSerums } = useContext(Context)
 
-  // const handleFilter = e => {
-  //   axios.get(`/serums/search/season?season=${e.target.value}`)
-  //   .then(res => setSerums(res.data))
-  //   .catch(err => console.log(err.response.data.errMsg))
-
-  // };
-
   return (
     <>
-      <form>
-        <Link to="/results/spring"><div value="Spring">Spring</div></Link>
-        <Link to="/results/summer"><div value="Summer">Summer</div></Link>
-        <Link to="/results/fall"><div value="Fall">Fall</div></Link>
-        <Link to="/results/winter"><div value="Winter">Winter</div></Link>
+      <form style={{ display: 'flex', flexDirection: "row", padding: "20px"}}>
+        <Link to="/results/spring" style={{ textDecoration: 'none', paddingRight: "20px"}}><div value="Spring">Spring</div></Link>
+        <Link to="/results/summer" style={{ textDecoration: 'none', paddingRight: "20px"}}><div value="Summer">Summer</div></Link>
+        <Link to="/results/fall" style={{ textDecoration: 'none', paddingRight: "20px"}}><div value="Fall">Fall</div></Link>
+        <Link to="/results/winter" style={{ textDecoration: 'none', paddingRight: "20px"}}><div value="Winter">Winter</div></Link>
       </form>
     </>
   )

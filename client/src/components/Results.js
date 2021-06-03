@@ -1,27 +1,21 @@
-import React, { useState, useEffect } from "react"
-import { Context } from "./DataManager"
+import React, { useState, useEffect, useContext } from "react"
 import axios from "axios"
+// import { Context } from "./DataManager"
 
 export default function Results(props, season) {
 
     const [serum, setSerum] = useState([])
 
-    let pathArray = window.location.pathname.split("/")
-
     const getSerum = () => {
-        return axios.get("/serums")
-
+        axios.get("/results/season")
+            .then(res => {
+                res.data.find(serum => {
+                    setSerum(serum)
+                })
+            })
     }
-
     useEffect(() => {
         getSerum()
-            .then(res => {
-                const foundSerum = res.data.find(serum => {
-                    console.log(serum.season)
-                    return serum.season.toUpperCase() === pathArray[2].toUpperCase()
-                })
-                setSerum(foundSerum)
-            })
     }, [])
 
     const handleSave = () => {

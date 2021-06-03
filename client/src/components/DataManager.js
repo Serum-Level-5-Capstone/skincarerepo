@@ -4,35 +4,21 @@ import React, { useState, useEffect } from "react"
 export const Context = React.createContext()
 
 export default function DataManager(props) {
-    const [serums, setSerum] = useState([])
-    console.log(serums)
+    const [serums, setSerums] = useState([])
 
-    const getSerum = () => {
+    // Get all
+    function getSerums() {
         axios.get("/serums")
-          .then(res => setSerum(res.data))
-          .catch(err => console.log(err))
-      }
-    
-      const saveSerum = (savedSerum) => {
-        axios.post("/my-cart", savedSerum)
-          .then(res => {
-            setSerum(prevSerum => [...prevSerum, res.data])
-          })
-          .catch(err => console.log(err))
-      }
-
-    useEffect(() => {
-
-        getSerum()
-
-    }, [])
+            .then(res => setSerums(res.data))
+            .catch(err => console.log(err))
+    }
 
     return (
         <Context.Provider value={{
             serums,
-            setSerum,
-            getSerum,
-            saveSerum
+            setSerums,
+            getSerums
+
         }}>
             {props.children}
         </Context.Provider>

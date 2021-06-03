@@ -1,6 +1,8 @@
 import React, { useContext, useState } from "react"
 import Results from "./Results"
 import { Context } from "./DataManager"
+
+
 export default function MyCart(props) {
 
     const [serumsArray, setSerumsArray] = useState([])
@@ -24,6 +26,11 @@ export default function MyCart(props) {
                 :
                 <> No data found :/ </>
             }
+            {/* <h2>{serums.name}</h2>
+            <p>{serums.tag}</p>
+            <p>{serums.description}</p>
+            <p>{serums.season}</p>
+            <img src={serums.image} alt="Serum Image"></img> */} 
         </div>
     )
 

@@ -9,8 +9,8 @@ export default function NavBar() {
     return (
         <div className="navbar">
             <nav>
-                <Link to="/">Home</Link>
-                <Link to="/my-cart">My Cart</Link>
+                <Link to="/" style={{ textDecoration: 'none', padding: "20px"}}>Home</Link>
+                <Link to="/my-cart" style={{ textDecoration: 'none'}}>My-Cart</Link>
             </nav>
 
             <Switch>
