@@ -43,7 +43,7 @@ export default function Results(props) {
             <p>{serum.tag}</p>
             <p>{serum.description}</p>
             <p>{serum.season}</p>
-            <img src={serum.image} alt="Serum Image"></img></div>
+            <img src={serum.image}></img></div>
     })
 
     return (

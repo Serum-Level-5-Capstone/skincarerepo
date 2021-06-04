@@ -1,13 +1,9 @@
-import React, { useContext } from "react";
+import React from "react";
 import { Link } from "react-router-dom";
-import { Context } from "./DataManager"
+
 
 //Onsubmit for survey and routed to Results component with the results. 
 export default function Survey() {
-
-  // const [selectedSerum, setSelectedSerum] = useState([])
-
-  const { serums, setSerums } = useContext(Context)
 
   return (
     <>
