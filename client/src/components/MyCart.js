@@ -11,11 +11,11 @@ export default function MyCart(props) {
             .then(res => setSerumsArray(res.data))
             .catch(err => console.log(err))
     }
-    getSerums()
+    
     //clearList()
-    // useEffect(() => {
-    //     getSerums()
-    // }, [])
+    useEffect(() => {
+        getSerums()
+    }, [])
 
     return (
         <div>
@@ -27,7 +27,9 @@ export default function MyCart(props) {
                         <p>{serum.tag}</p>
                         <p>{serum.description}</p>
                         <p>{serum.season}</p>
-                        <img src={serum.image} alt="Serum Image"></img></div>
+                        <img src={serum.image} alt="Serum Image"></img>
+                        <button>Delete</button>
+                        </div>
                 })
                 :
                 <> No data found :/ </>
