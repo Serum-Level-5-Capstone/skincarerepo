@@ -5,8 +5,11 @@
   "main": "index.js",
   "dependencies": {
     "express": "^4.17.1",
+    "mongod": "^2.0.0",
+    "mongodb": "^3.6.8",
     "mongoose": "^5.12.11",
-    "morgan": "^1.10.0"
+    "morgan": "^1.10.0",
+    "react-router": "^5.2.0"
   },
   "devDependencies": {},
   "scripts": {

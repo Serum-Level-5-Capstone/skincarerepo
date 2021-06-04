@@ -1,20 +1,25 @@
-import {Switch, Route } from "react-router-dom"
+
+import React from "react"
+import { Switch, Route } from "react-router-dom"
+import Navbar from "./components/Navbar"
+import Results from "./components/Results"
+import MyCart from "./components/MyCart"
 
 function App() {
   return (
-    <div>
-      <p>hi</p>
-
-      //QUESTION: The survey and results will not be accessed on home page. Only on survey component and results. Does route below need to all live on one app? Or be specified inside the components I want them to display?
-      {/* <Switch>
-          <Route exact path="/"><Home /></Route>
-          <Route path="/survey"><Survey /></Route>
-          <Route path="/Results"> <Results /></Route>
+    <>
+      
+        <Navbar />
+        <Switch>
+          <Route exact path="/"></Route>
+          <Route path="/results/spring"><Results season="spring" /></Route>
+          <Route path="/results/summer"><Results season="summer" /></Route>
+          <Route path="/results/fall"><Results season="fall" /></Route>
+          <Route path="/results/winter"><Results season="winter" /></Route>
+          <Route exact path="/my-cart"><MyCart /></Route>
         </Switch>
-          <Footer /> */}
-
-    
-    </div>
+     
+    </>
   );
 }
 

@@ -1,24 +1,35 @@
 const express = require('express')
 const serumRouter = express.Router()
-const serum = require('./models/serum.js')
-
+const Serum = require('../models/Serum.js')
 
 serumRouter.get("/", (req, res, next) => {
-    serum.find((err, serums) =>{
-        if(err){
+    Serum.find((err, serums) => {
+        if (err) {
             res.status(500)
             return next(err)
         }
-        return res.status(200).send(serum)
+        return res.status(200).send(serums)
     })
 })
 
-serumRouter.post("/", (req, res, next) =>
-{
-    const newSerum = new serum(req.body)
-    newSerum.save((err, savedSerum) =>
-    {
-        if(err){
+//Get single serum by season
+//Needed get request for specific serum, to display and for the proper cart to render which were selected. use a parameter either id or season to do the get request then use that in the route to display the json information from the database. use that to then send it as a parameter to the result page so the individual can check out with their desired product either by id or by season.
+serumRouter.get("/results/:season", (req, res, next) => {
+    const userSeason = req.params.season
+    Serum.find({season: userSeason}, (err, result) => {
+        if(err) {
+            return res.status(500)
+            next(err)
+        }
+        return res.status(200).send(result)
+    })
+})
+    
+
+serumRouter.post("/", (req, res, next) => {
+    const newSerum = new Serum(req.body)
+    newSerum.save((err, savedSerum) => {
+        if (err) {
             res.status(500)
             return next(err)
         }
@@ -27,37 +38,17 @@ serumRouter.post("/", (req, res, next) =>
 
     })
 })
-serumRouter.delete("/:serumId", (req, res, next) =>
-{serum.findOneAndDelete({_id: req.params.serumId},
-    (err, deletedItem) =>
-    {
-        if(err){
-            res.status(500)
-            return next(err)
-        }
-        return res.status(200).send(`Successfully deleted ${deletedItem.firstName} from the database`)
+
+serumRouter.delete("/:serumId", (req, res, next) => {
+    Serum.findOneAndDelete({ _id: req.params.serumId },
+        (err, deletedItem) => {
+            if (err) {
+                res.status(500)
+                return next(err)
+            }
+            return res.status(200).send(`Successfully deleted ${deletedItem._id} from the database`)
+        })
 })
-})
-
-
-serumRouter.put("/:bountyId", (req, res, next) => {
-    serum.findOneAndUpdate({_id: req.params.serumId},
-        req.body, //update this obj with this data
-         {new: true}, //sends back updated version 
-         (err, updatedItem) =>
-    {
-        if(err){
-            res.status(500)
-            return next(err)
-        }
-        return res.status(201).send(`Successfully updated ${updatedItem.firstName} in the database`)
-})
-
-})
-    
-   
-
-
 
 
 module.exports = serumRouter
