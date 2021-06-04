@@ -1,7 +1,7 @@
 const express = require('express')
 const serumRouter = express.Router()
 const Serum = require('../models/Serum.js')
-
+const Cart = require("../models/Cart.js")
 
 serumRouter.get("/", (req, res, next) => {
     Serum.find((err, serums) => {
@@ -26,14 +26,6 @@ serumRouter.get("/results/:season", (req, res, next) => {
     })
 })
     
-    // const foundSerum = Serum.find(serum => serum.season.toLowerCase() === season)
-    // if (!foundSerum) {
-    //     const err = new Error("Item was not found")
-    //     res.status(500)
-    //     return next(err)
-    // }
-    // return res.status(200).send(foundSerum)
-// })
 
 serumRouter.post("/", (req, res, next) => {
     const newSerum = new Serum(req.body)
@@ -47,8 +39,9 @@ serumRouter.post("/", (req, res, next) => {
 
     })
 })
+
 serumRouter.delete("/:serumId", (req, res, next) => {
-    serum.findOneAndDelete({ _id: req.params.serumId },
+    Serum.findOneAndDelete({ _id: req.params.serumId },
         (err, deletedItem) => {
             if (err) {
                 res.status(500)

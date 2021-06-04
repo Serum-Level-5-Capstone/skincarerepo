@@ -14,12 +14,13 @@ mongoose.connect('mongodb://localhost:27017/serumsitedb',
     useFindAndModify: false
 }, 
 () => console.log("Connected to the DB")
-
 )
 
 
+
+
 app.use("/serums", require("./routes/serumRouter")) 
-app.use("/my-cart", require("./routes/serumRouter")) 
+app.use("/my-cart", require("./routes/cartRouter")) 
 
 app.use((err, req, res, next) =>{
     console.log(err)

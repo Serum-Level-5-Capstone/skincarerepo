@@ -1,12 +1,14 @@
-import React, { useState, useEffect, useContext } from "react"
+import React, { useState, useEffect } from "react"
 import axios from "axios"
 // import { Context } from "./DataManager"
 
+export const resultsContext = React.createContext()
+
 export default function Results(props) {
-    
+
     console.log(props.season)
-    
-    const [serum, setSerum] = useState([])
+
+    const [serums, setSerum] = useState([])
 
     const getSerum = () => {
         axios.get(`/serums/results/${props.season}`)
@@ -20,28 +22,40 @@ export default function Results(props) {
 
     const handleSave = () => {
 
-        let serumsArray = []
-
         const serumObj = {
-            name: serum.name,
-            tag: serum.tag,
-            description: serum.description,
-            season: serum.season,
-            image: serum.image
+            name: serums.name,
+            tag: serums.tag,
+            description: serums.description,
+            season: serums.season,
+            image: serums.image
         }
-        serumsArray.push(serumObj)
+
+        axios.post("/my-cart", serumObj)
+            .then(res => console.log(res))
+            .catch(err => console.log(err))
     }
-    console.log(serum)
+    console.log(serums)
+
     // map through results outside of return 
-    return (
-        <div>
-            {/* <h2>{serum.name}</h2>
+    const mappedSerums = serums.map(serum => {
+        return <div key={serum.id}><h2>{serum.name}</h2>
             <p>{serum.tag}</p>
             <p>{serum.description}</p>
             <p>{serum.season}</p>
-            <img url={serum.image} alt="Serum Image"></img>*/}
-            <button onClick={handleSave}>Save Serum</button> 
-        </div>
-    )
+            <img src={serum.image} alt="Serum Image"></img></div>
+    })
 
+    return (
+        <>
+            <resultsContext.Provider value={{
+                serums
+            }}>
+                {props.children}
+            </resultsContext.Provider>
+            <div>
+                {mappedSerums}
+                <button onClick={handleSave}>Save Serum</button>
+            </div>
+        </>
+    )
 }
