@@ -11,10 +11,11 @@ export default function MyCart(props) {
             .then(res => setSerumsArray(res.data))
             .catch(err => console.log(err))
     }
-
-    useEffect(() => {
-        getSerums()
-    }, [])
+    getSerums()
+    //clearList()
+    // useEffect(() => {
+    //     getSerums()
+    // }, [])
 
     return (
         <div>
@@ -22,7 +23,7 @@ export default function MyCart(props) {
 
             { serumsArray.length > 0 ?
                 serumsArray.map(serum => {
-                    return <div key={serum.id}><h2>{serum.name}</h2>
+                    return <div key={serum.name}><h2>{serum.name}</h2>
                         <p>{serum.tag}</p>
                         <p>{serum.description}</p>
                         <p>{serum.season}</p>

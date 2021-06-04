@@ -5,25 +5,20 @@ const Schema = mongoose.Schema
 
 const cartSchema = new Schema({
     name: {
-        type: String,
-        required: true
+        type: String
     },
     tag: {
-        type: String,
-        required: true
+        type: String
     },
     description: {
-        type: String,
-        required: true
+        type: String
     },
     season: {
         type: String,
-        enum: ["spring", "summer", "fall", "winter"],
-        required: true
+        enum: ["spring", "summer", "fall", "winter"]
     }, 
     image: {
-        type: String,
-        required: true
+        type: String
     }
 
 })

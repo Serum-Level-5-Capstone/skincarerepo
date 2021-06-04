@@ -1,7 +1,6 @@
 const express = require('express')
 const serumRouter = express.Router()
 const Serum = require('../models/Serum.js')
-const Cart = require("../models/Cart.js")
 
 serumRouter.get("/", (req, res, next) => {
     Serum.find((err, serums) => {
