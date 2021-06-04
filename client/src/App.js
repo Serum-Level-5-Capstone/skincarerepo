@@ -16,7 +16,6 @@ function App() {
           <Route path="/results/summer"><Results season="summer" /></Route>
           <Route path="/results/fall"><Results season="fall" /></Route>
           <Route path="/results/winter"><Results season="winter" /></Route>
-          <Route exact path="/my-cart"><MyCart /></Route>
         </Switch>
      
     </>
