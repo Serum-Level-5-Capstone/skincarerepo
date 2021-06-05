@@ -25,6 +25,7 @@ export default function Results(props) {
     const handleSave = () => {
         console.log(serums)
         const serumObj = {
+            _id:serums._id,
             name: serums[0].name,
             tag: serums[0].tag,
             description: serums[0].description,
@@ -39,7 +40,7 @@ export default function Results(props) {
     
     // map through results outside of return 
     const mappedSerums = serums.map(serum => {
-        return <div key={serum.name}><h2>{serum.name}</h2>
+        return <div key={serum._id}><h2>{serum.name}</h2>
             <p>{serum.tag}</p>
             <p>{serum.description}</p>
             <p>{serum.season}</p>
@@ -48,6 +49,7 @@ export default function Results(props) {
 
     return (
         <>
+        
             <resultsContext.Provider value={{
                 serums
             }}>

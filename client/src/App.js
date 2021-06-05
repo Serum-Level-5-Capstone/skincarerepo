@@ -3,7 +3,6 @@ import React from "react"
 import { Switch, Route } from "react-router-dom"
 import Navbar from "./components/Navbar"
 import Results from "./components/Results"
-import MyCart from "./components/MyCart"
 
 function App() {
   return (
@@ -16,7 +15,6 @@ function App() {
           <Route path="/results/summer"><Results season="summer" /></Route>
           <Route path="/results/fall"><Results season="fall" /></Route>
           <Route path="/results/winter"><Results season="winter" /></Route>
-          <Route exact path="/my-cart"><MyCart /></Route>
         </Switch>
      
     </>
