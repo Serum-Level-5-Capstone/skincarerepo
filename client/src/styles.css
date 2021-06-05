@@ -1,13 +1,110 @@
 
+* {
+    justify-content: center;
+    align-content: center;
+    text-align: center;
+    background-image: url("https://thumbs.dreamstime.com/b/set-creative-minimalist-hand-draw-illustrations-floral-outline-lily-bright-circle-simple-shape-vintage-color-design-wall-216238426.jpg");
+}
 nav {
     text-decoration: none;
-    font-size: 20px;
+    font-size: 40px;
+}
+a {
+    color: rgb(201, 4, 69);
+    text-shadow: 2px gray;
+    font-size: 30px;
+    margin-left: 80px;
+    margin-right: 80px;
+    font-family: "Snell Roundhand", cursive;
 }
 .navbar {
     text-decoration: none;
 }
 
+h1 {
+    margin-top: 80px;
+    font-size: 30px;
+    font-family: "Snell Roundhand", cursive;
+    text-shadow: rgb(247, 111, 133) 2px 2px;
+}
+h2 {
+    margin-top: 30px;
+    font-size: 30px;
+    text-shadow: pink 2px 2px;
+}
 img {
-    width: 500px;
-    height: 600px;
+    width: 200px;
+    height: 300px;
+    margin: 5px;
+    box-shadow: rgb(201, 4, 69) 2px 2px 2px 2px;
+    padding: 5px;
+}
+form {
+    color: black;
+    margin-top: 100px;
+    margin-left: -20px;
+}
+
+.spring {
+    padding: 50px;
+    border: 2px solid  darkgreen;
+    font-weight: bold;
+    color: darkgreen;
+    font-size: 30px;
+    text-shadow: pink 2px 2px;
+    font-family: "Snell Roundhand", cursive;
+    box-shadow: lime 2px 2px 2px 2px
+}
+.summer {
+    color: black;
+    padding: 50px;
+    border: 2px solid  orange;
+    font-weight: bold;
+    font-size: 30px; 
+    text-shadow: pink 2px 2px;
+    font-family: "Snell Roundhand",cursive;
+    box-shadow: yellow 2px 2px 2px 2px
+}
+.fall {
+    color: black;
+    padding: 50px;
+    padding-left: 75px;
+    padding-right: 75px;
+    border: 2px solid  rgb(201, 4, 69);
+    font-weight: bold;
+    font-size: 30px;
+    text-shadow: pink 2px 2px;
+    font-family: "Snell Roundhand", cursive;
+    box-shadow: hotpink 2px 2px 2px 2px
+}
+.winter {
+    color: black;
+    padding: 50px;
+    border: 2px solid rgb(3, 78, 148);
+    font-weight: bold;
+    font-size: 30px; 
+    text-shadow: pink 2px 2px;
+    font-family: "Apple Chancery", cursive;
+    box-shadow: rgb(4, 188, 201) 2px 2px 2px 2px
+}
+.myCart {
+    display: flex;
+}
+.cartItems {
+    width: 300px;
+    padding: 15px;
+}
+button {
+    padding:5px;
+    font-family: "Apple Chancery", cursive;
+} 
+p {
+    font-family: "Apple Chancery", cursive;
+    text-shadow:pink 2px 2px;
+}
+.deleteButton {
+    margin: 8px;
+    font-size: 8px;
+    font-weight: bold;
+    font-family: "Apple Chancery", cursive; 
 }

@@ -41,7 +41,7 @@ export default function Results(props) {
     // map through results outside of return 
     const mappedSerums = serums.map(serum => {
         return <div key={serum._id}><h2>{serum.name}</h2>
-            <p>{serum.tag}</p>
+            <p>Season: {serum.tag}</p>
             <p>{serum.description}</p>
             <p>{serum.season}</p>
             <img src={serum.image}></img></div>
