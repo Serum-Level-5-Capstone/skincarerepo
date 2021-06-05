@@ -3,7 +3,6 @@ import React from "react"
 import { Switch, Route } from "react-router-dom"
 import Navbar from "./components/Navbar"
 import Results from "./components/Results"
-import MyCart from "./components/MyCart"
 
 function App() {
   return (

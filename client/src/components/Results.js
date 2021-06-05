@@ -9,6 +9,7 @@ export default function Results(props) {
     console.log(props.season)
 
     const [serums, setSerum] = useState([])
+    const [savedSerum, setSavedSerum] = useState([])
 
     const getSerum = () => {
         axios.get(`/serums/results/${props.season}`)
@@ -24,6 +25,7 @@ export default function Results(props) {
     const handleSave = () => {
         console.log(serums)
         const serumObj = {
+            _id:serums._id,
             name: serums[0].name,
             tag: serums[0].tag,
             description: serums[0].description,
@@ -32,13 +34,13 @@ export default function Results(props) {
         }
         console.log(serumObj)
         axios.post("/my-cart", serumObj)
-            .then(res => setSerum(res.data))
+            .then(res => setSavedSerum(res.data))
             .catch(err => console.log(err))
     }
     
     // map through results outside of return 
-    const mappedSerums = serums.map((serum, _id) => {
-        return <div key={_id}><h2>{serum.name}</h2>
+    const mappedSerums = serums.map(serum => {
+        return <div key={serum._id}><h2>{serum.name}</h2>
             <p>{serum.tag}</p>
             <p>{serum.description}</p>
             <p>{serum.season}</p>
@@ -47,6 +49,7 @@ export default function Results(props) {
 
     return (
         <>
+        
             <resultsContext.Provider value={{
                 serums
             }}>

@@ -13,13 +13,15 @@ export default function MyCart(props) {
             .catch(err => console.log(err))
     }
 
+    console.log(serumsArray)
 
     function deleteSerum(serumId) { // <-- declare id parameter
+        console.log(serumId)
         axios.delete(`/my-cart/${serumId}`) // <-- remove ;
             .then(res => {
                 setSerumsArray(prevSerums => prevSerums.filter(serum => serum._id !== serumId))
-                    .catch(error => console.error('There was an error!', error))
             })
+            .catch(error => console.error('There was an error!', error))
     }
 
     useEffect(() => {
@@ -32,13 +34,13 @@ export default function MyCart(props) {
             <h1>Checkout</h1>
 
             { serumsArray.length > 0 ?
-                serumsArray.map((serum, _id) => {
-                    return <div key={_id}><h2>{serum.name}</h2>
+                serumsArray.map(serum => {
+                    return <div key={serum._id}><h2>{serum.name}</h2>
                         <p>{serum.tag}</p>
                         <p>{serum.description}</p>
                         <p>{serum.season}</p>
                         <img src={serum.image} alt="Serum Image"></img>
-                        <button onClick={() => deleteSerum(_id)}>Delete</button>
+                        <button onClick={() => deleteSerum(serum._id)}>Delete</button>
                     </div>
                 })
                 :
