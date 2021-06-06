@@ -30,24 +30,25 @@ export default function MyCart(props) {
     }, [])
 
     return (
-        <div>
+        <>
             <h1>Checkout</h1>
+            <div className="myCart">
+                {serumsArray.length > 0 ?
+                    serumsArray.map(serum => {
+                        return <div  className="cartItems" key={serum._id}><h2>{serum.name}</h2>
+                            <p>{serum.tag}</p>
+                            <p>{serum.description}</p>
+                            <p>{serum.season}</p>
+                            <img src={serum.image} alt="Serum Image"></img>
+                            <button className="deleteButton" onClick={() => deleteSerum(serum._id)}>Delete</button>
+                        </div>
+                    })
+                    :
+                    <> No data found :/ </>
+                }
 
-            { serumsArray.length > 0 ?
-                serumsArray.map(serum => {
-                    return <div key={serum._id}><h2>{serum.name}</h2>
-                        <p>{serum.tag}</p>
-                        <p>{serum.description}</p>
-                        <p>{serum.season}</p>
-                        <img src={serum.image} alt="Serum Image"></img>
-                        <button onClick={() => deleteSerum(serum._id)}>Delete</button>
-                    </div>
-                })
-                :
-                <> No data found :/ </>
-            }
-
-        </div>
+            </div>
+        </>
     )
 
 }

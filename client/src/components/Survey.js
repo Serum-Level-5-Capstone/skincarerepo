@@ -6,14 +6,14 @@ import { Link } from "react-router-dom";
 export default function Survey() {
 
   return (
-    <>
+    <div className="surveyForm">
       <form style={{ display: 'flex', flexDirection: "row", padding: "20px"}}>
-        <Link to="/results/spring" style={{ textDecoration: 'none', paddingRight: "20px"}}><div value="Spring">Spring</div></Link>
-        <Link to="/results/summer" style={{ textDecoration: 'none', paddingRight: "20px"}}><div value="Summer">Summer</div></Link>
-        <Link to="/results/fall" style={{ textDecoration: 'none', paddingRight: "20px"}}><div value="Fall">Fall</div></Link>
-        <Link to="/results/winter" style={{ textDecoration: 'none', paddingRight: "20px"}}><div value="Winter">Winter</div></Link>
+        <Link to="/results/spring" style={{ textDecoration: 'none', paddingRight: "20px"}}><div className ="spring" value="Spring">Spring</div></Link>
+        <Link to="/results/summer" style={{ textDecoration: 'none', paddingRight: "20px"}}><div className ="summer" value="Summer">Summer</div></Link>
+        <Link to="/results/fall" style={{ textDecoration: 'none', paddingRight: "20px"}}><div className ="fall" value="Fall">Fall</div></Link>
+        <Link to="/results/winter" style={{ textDecoration: 'none', paddingRight: "20px"}}><div className ="winter" value="Winter">Winter</div></Link>
       </form>
-    </>
+    </div>
   )
 }
 

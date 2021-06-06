@@ -10,7 +10,7 @@ export default function NavBar() {
         <div className="navbar">
             <nav>
                 <Link to="/" style={{ textDecoration: 'none', padding: "20px"}}>Home</Link>
-                <Link to="/my-cart" style={{ textDecoration: 'none'}}>My-Cart</Link>
+                <Link to="/my-cart" style={{ textDecoration: 'none'}}>Shopping Cart</Link>
             </nav>
 
             <Switch>
